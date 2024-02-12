@@ -1,0 +1,31 @@
+/* Estilo general para el body */
+/* Que el body de la pagina sea marron claro, con una altura minima de 100vh, y que lo elementos esten uno encima del otro y centrados. */
+/* Que el estilo de la letra del body sea Verdana, sans-serif. */
+
+body{
+    min-height: 100vh;
+    font-family: Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4a460;
+}
+
+/* Estilo de los botones */
+/* Que los botones tengan un color de fondo gris oscuro, con el texto en color blanco y con las esquinas redondeadas. */
+button{
+    background-color: #3f4547;
+    color: white;
+    border-radius: 10px;
+}
+
+/* Pantalla inicial (Dashboard) */
+/* Que los elementos de la pantalla inicial esten uno encima del otro y centrados. */
+.order{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
