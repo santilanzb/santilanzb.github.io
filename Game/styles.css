@@ -1,30 +1,56 @@
-/* Estilo global para el body */
+/* Body styling */
 body {
     min-height: 100vh;
-    font-family: Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
-    background-color: #f4a460; /* Marrón claro */
+    background: radial-gradient(circle, #FF6B6B, #3D315B); /* Radial gradient background */
+    color: #7e80b7; /* Font color */
+    background-size: cover; /* Cover the entire viewport */
+    overflow: hidden; /* Hide overflowing content */
+    position: relative; /* Position content relative to the body */
 }
 
-/* Estilo de los botones */
+/* Unique text styling */
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better visibility */
+    color: #ffffff; /* Font color */
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #ffffff; /* Font color */
+}
+
+/* Unique button styling */
 button {
-    background-color: #3f4547; /* Gris oscuro */
-    color: white;
+    background-color: #4CAF50;
     border: none;
-    border-radius: 25px; /* Make buttons more rounded */
-    padding: 15px 25px; /* Add padding for better appearance */
-    font-size: 16px; /* Increase font size */
+    color: #ffffff; /* Font color */
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
     cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Add transitions for smoother hover effect */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 button:hover {
-    background-color: #696969; /* Gris */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: scale(1.05); /* Add slight scale effect on hover */
+    transform: scale(1.1); /* Increase button size on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add shadow effect on hover */
 }
 
 /* Pantalla inicial (Dashboard) */
@@ -35,19 +61,21 @@ button:hover {
 }
 
 
-/* Estilo del formulario */
+/* Style for the registration section container */
 .registration-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Center horizontally */
+    align-items: center;
     margin: 50px;
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo de color cristalino */
-    border-radius: 10px;
+    background: radial-gradient(circle, #f7f7f7 20%, #d3f7c3 40%);
+    background-size: 5px 5px; /* Adjust the size of the points */
+    border-radius: 20px; /* Rounded border */
     padding: 40px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
+
 
 /*Make the image in the form smaller and centered*/
 #form img {
@@ -75,7 +103,7 @@ button:hover {
 
 #boardSizeButtons button {
     background-color: #17d97a;
-    color: white;
+    color: #ffffff; /* Font color */
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -138,21 +166,20 @@ button:hover {
     flex-direction: row;
 }
 
-#Tables, #scores, #victories{
+/* Style for the game sections and victory sections */
+#Tables, #scores, #victories {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 10px;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo de color cristalino */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    background: radial-gradient(circle, #f7f7f7 20%, #d3f7c3 40%);
+    background-size: 5px 5px; /* Adjust the size of the points */
+    border-radius: 20px; /* Rounded border */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
+
 
 .hidden {
     display: none;
 }
-
-
-
-
