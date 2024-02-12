@@ -29,18 +29,46 @@ button:hover {
     justify-content: space-around; /* Cambiado de space-between a space-around */
 }
 
+
 /* Estilo del formulario */
 #form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
     margin: 50px;
     background-color: rgba(255, 255, 255, 0.8); /* Fondo de color cristalino */
     border-radius: 10px;
     padding: 40px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Contenedor de nombres de jugadores */
+#playerNames {
+    margin-bottom: 20px; /* Espacio entre el contenedor y el siguiente elemento */
+}
+
+/* Botones de selección del tablero */
+#boardSizeButtons {
+    display: flex;
+    justify-content: flex-end; /* Coloca los botones a la derecha */
+}
+
+#boardSizeButtons button {
+    background-color: #007bff; /* Azul */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-left: 10px; /* Espacio entre los botones */
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#boardSizeButtons button:hover {
+    background-color: #0056b3; /* Azul más oscuro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Pantalla del tablero */
@@ -69,3 +97,37 @@ button:hover {
     grid-template-columns: repeat(5, 50px);
     grid-template-rows: repeat(5, 50px);
 }
+
+/* Casillas de las tablas */
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4a460; /* Marrón claro */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Casilla inicial */
+.board-cell {
+    background-color: #f4a460; /* Marrón claro */
+    border-radius: 5px;
+}
+
+/* board */
+#board {
+    display: flex;
+    flex-direction: row;
+}
+
+#Tables, #scores, #victories{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo de color cristalino */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
