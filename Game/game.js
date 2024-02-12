@@ -33,7 +33,7 @@ function resetGameData() {
     tableros = [];
     countRounds = 0;
     arrayIndex = 0;
-    DeleteDashboard();
+    deleteDashboard();
 }
 
 function createPlayerContainer(playerName, playerIndex) {
@@ -206,5 +206,135 @@ function resetearValores() {
     randomUniqueNumbers = getRandomUniqueNumbers(MIN_NUMBER, MAX_NUMBER, QUANTITY_NUMBERS);
     countRounds = 0;
     arrayindex = 0;
+}
+
+function resetearValores() {
+    const jugadores = ["contenedor_jugador1", "contenedor_jugador2", "contenedor_jugador3", "contenedor_jugador4"];
+
+    jugadores.forEach((jugador) => {
+        const tablero = document.getElementById(jugador);
+        tablero.style.display = "flex";
+        tablero.style.flexDirection = "column";
+    });
+}
+
+function showDashboard() {
+    countRounds = 0;
+    const elementsToHide = ["Tablas", "puntajes", "victorias"];
+
+    elementsToHide.forEach((elementId) => {
+        const element = document.getElementById(elementId);
+        element.style.display = "none";
+
+        if (elementId === "Lista") {
+            element.innerHTML = ""; // Clear the content of the list
+        }
+    });
+
+    const formElement = document.getElementById("form");
+    formElement.style.display = "flex";
+    formElement.style.flexDirection = "column";
+    formElement.style.justifyContent = "center";
+}
+
+function verificarCartonLleno(matriz) {
+    return matriz.every(row => row.every(cell => cell === "x"));
+}
+
+function encontrarPosicion(matriz, valor) {
+    for (let i = 0; i < matriz.length; i++) {
+        for (let j = 0; j < matriz[i].length; j++) {
+            if (matriz[i][j] == valor) {
+                return { fila: i, columna: j };
+            }
+        }
+    }
+    return -1;
+}
+
+function verificarDiagonalPrincipal(matriz) {
+    return matriz.every((row, index) => row[index] === "x");
+}
+
+function verificarDiagonalSecundaria(matriz) {
+    const n = matriz.length;
+    return matriz.every((row, index) => row[n - 1 - index] === "x");
+}
+
+function filasConX(matriz) {
+    return matriz.reduce((contador, fila) => {
+        return fila.every(cell => cell === "x") ? contador + 1 : contador;
+    }, 0);
+}
+
+function columnasConX(matriz) {
+    const n = matriz[0].length;
+    let contador = 0;
+    for (let j = 0; j < n; j++) {
+        if (matriz.every(row => row[j] === "x")) {
+            contador++;
+        }
+    }
+    return contador;
+}
+
+function verificarPuntos() {
+    const puntos = [0, 0, 0, 0];
+
+    const element = document.getElementById("Tablas");
+    element.style.display = "none";
+
+    const element1 = document.getElementById("puntajes");
+    element1.style.display = "flex";
+
+    for (let i = 0; i < 4; i++) {
+        const jugadorIndex = i + 1;
+        const jugadorInput = document.getElementById(`jugador${jugadorIndex}`);
+        const jugadorNombre = jugadorInput.value;
+
+        const lleno = verificarCartonLleno(tableros[i]);
+        const principal = verificarDiagonalPrincipal(tableros[i]);
+        const secundaria = verificarDiagonalSecundaria(tableros[i]);
+        const filas = filasConX(tableros[i]);
+        const columnas = columnasConX(tableros[i]);
+
+        puntos[i] += lleno ? 5 : 0;
+        puntos[i] += principal ? 3 : 0;
+        puntos[i] += secundaria ? 3 : 0;
+        puntos[i] += filas + columnas;
+
+        const jugadorpuntos = document.createElement('li');
+        jugadorpuntos.innerHTML = `${jugadorNombre}: ${puntos[i]}`;
+        const lista = document.getElementById("Lista");
+        lista.appendChild(jugadorpuntos);
+
+        if (validarNombreEnLocalStorage(jugadorNombre)) {
+            let puntajeprevio = localStorage.getItem(jugadorNombre);
+            let valor = parseInt(puntajeprevio);
+            valor += puntos[i];
+            localStorage.setItem(jugadorNombre, valor);
+        } else {
+            localStorage.setItem(jugadorNombre, puntos[i]);
+        }
+    }
+}
+
+function mostrarVictorias() {
+    const element_new2 = document.getElementById("victorias");
+    element_new2.style.display = "flex";
+
+    deleteDashboard();
+
+    const lista = document.getElementById("victoriasLista");
+    lista.innerHTML = '';
+
+    // Iterate over localStorage keys and display player victories
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        const element = document.createElement("li");
+        element.textContent = `${key}: ${value}`;
+        lista.appendChild(element);
+    }
 }
 
