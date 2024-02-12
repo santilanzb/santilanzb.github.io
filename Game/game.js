@@ -1,4 +1,4 @@
-let tableros = [];
+let boards = [];
 
 const min = 1;
 const max = 50;
@@ -8,7 +8,7 @@ var arrayindex = 0;
 
 function generateBoard(size) {
     if (validarNombres()) {
-        tableros = [];
+        boards = [];
         countRounds = 0;
         arrayindex = 0;
         DeleteDashboard();
@@ -56,7 +56,7 @@ function generateBoard(size) {
 
             container.appendChild(tablero);
             boardContainer.appendChild(container);
-            tableros.push(tableroarray);
+            boards.push(tableroarray);
         }
     } else {
         alert('Debes ingresar los nombres de los jugadores y sin repetirlos!');
@@ -117,10 +117,10 @@ function validarNombres() {
 
 function number() {
     countRounds++;
-    const tablero1 = tableros[0];
-    const tablero2 = tableros[1];
-    const tablero3 = tableros[2];
-    const tablero4 = tableros[3];
+    const tablero1 = boards[0];
+    const tablero2 = boards[1];
+    const tablero3 = boards[2];
+    const tablero4 = boards[3];
 
     if (
         countRounds < 25 &&
@@ -150,26 +150,26 @@ function changeCell(aleatorio) {
         }
     });
 
-    for (let i = 0; i < tableros.length; i++) {
+    for (let i = 0; i < boards.length; i++) {
         if (i == 0) {
-            const posicion = encontrarPosicion(tableros[0], aleatorio);
+            const posicion = encontrarPosicion(boards[0], aleatorio);
             if (posicion != -1) {
-                tableros[0][posicion["fila"]][posicion["columna"]] = "x";
+                boards[0][posicion["fila"]][posicion["columna"]] = "x";
             }
         } else if (i == 1) {
-            const posicion = encontrarPosicion(tableros[1], aleatorio);
+            const posicion = encontrarPosicion(boards[1], aleatorio);
             if (posicion != -1) {
-                tableros[1][posicion["fila"]][posicion["columna"]] = "x";
+                boards[1][posicion["fila"]][posicion["columna"]] = "x";
             }
         } else if (i == 2) {
-            const posicion = encontrarPosicion(tableros[2], aleatorio);
+            const posicion = encontrarPosicion(boards[2], aleatorio);
             if (posicion != -1) {
-                tableros[2][posicion["fila"]][posicion["columna"]] = "x";
+                boards[2][posicion["fila"]][posicion["columna"]] = "x";
             }
         } else {
-            const posicion = encontrarPosicion(tableros[3], aleatorio);
+            const posicion = encontrarPosicion(boards[3], aleatorio);
             if (posicion != -1) {
-                tableros[3][posicion["fila"]][posicion["columna"]] = "x";
+                boards[3][posicion["fila"]][posicion["columna"]] = "x";
             }
         }
     }
@@ -205,7 +205,7 @@ function verificarPuntos() {
     let puntos = [];
 
     for (let i = 0; i < 4; i++) {
-        const tablero = tableros[i];
+        const tablero = boards[i];
         let puntosJugador = calcularPuntos(tablero);
         puntos.push(puntosJugador);
 
