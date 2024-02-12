@@ -13,14 +13,18 @@ body {
 button {
     background-color: #3f4547; /* Gris oscuro */
     color: white;
-    border-radius: 20px;
-    transition: box-shadow 0.3s, transform 0.3s, background-color 0.3s; /* Agregamos transiciones */
+    border: none;
+    border-radius: 25px; /* Make buttons more rounded */
+    padding: 15px 25px; /* Add padding for better appearance */
+    font-size: 16px; /* Increase font size */
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Add transitions for smoother hover effect */
 }
 
 button:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: scale(1.1);
     background-color: #696969; /* Gris */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05); /* Add slight scale effect on hover */
 }
 
 /* Pantalla inicial (Dashboard) */
@@ -32,11 +36,11 @@ button:hover {
 
 
 /* Estilo del formulario */
-#form {
+.registration-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Alinea los elementos a la izquierda */
+    align-items: center; /* Center horizontally */
     margin: 50px;
     background-color: rgba(255, 255, 255, 0.8); /* Fondo de color cristalino */
     border-radius: 10px;
@@ -44,26 +48,30 @@ button:hover {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
 }
-/*Make the image in the form smaller*/
+
+/*Make the image in the form smaller and centered*/
 #form img {
-    width: 250px;
-    height: 250px;
-    margin-bottom: 0px; /* Espacio entre la imagen y el siguiente elemento */
+    width: 200px; /* Decrease image size */
+    height: 200px; /* Decrease image size */
+    margin-bottom: 20px; /* Increase space between image and next elements */
     justify-content: center;
     align-items: center;
+    display: block; /* Center the image */
+    margin-left: auto; /* Center the image horizontally */
+    margin-right: auto; /* Center the image horizontally */
 }
-
 
 /* Contenedor de nombres de jugadores */
 #playerNames {
-    margin-bottom: 20px; /* Espacio entre el contenedor y el siguiente elemento */
+    margin-bottom: 20px; /* Space between the container and the next element */
 }
 
 /* Botones de selección del tablero */
 #boardSizeButtons {
-    display: flex;
-    justify-content: flex-end; /* Coloca los botones a la derecha */
+    align-self: flex-end; /* Align the buttons to the right */
+    margin-top: 20px; /* Space between the buttons and the previous element */
 }
+
 
 #boardSizeButtons button {
     background-color: #17d97a;
