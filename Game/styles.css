@@ -5,6 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
     background-color: #f4a460; /* Marrón claro */
 }
 
@@ -12,7 +13,7 @@ body {
 button {
     background-color: #3f4547; /* Gris oscuro */
     color: white;
-    border-radius: 10px;
+    border-radius: 20px;
     transition: box-shadow 0.3s, transform 0.3s, background-color 0.3s; /* Agregamos transiciones */
 }
 
@@ -43,6 +44,15 @@ button:hover {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
 }
+/*Make the image in the form smaller*/
+#form img {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 0px; /* Espacio entre la imagen y el siguiente elemento */
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* Contenedor de nombres de jugadores */
 #playerNames {
@@ -56,7 +66,7 @@ button:hover {
 }
 
 #boardSizeButtons button {
-    background-color: #007bff; /* Azul */
+    background-color: #17d97a;
     color: white;
     border: none;
     border-radius: 5px;
@@ -67,7 +77,7 @@ button:hover {
 }
 
 #boardSizeButtons button:hover {
-    background-color: #0056b3; /* Azul más oscuro */
+    background-color: #07703c;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -130,4 +140,11 @@ button:hover {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
 }
+
+.hidden {
+    display: none;
+}
+
+
+
 

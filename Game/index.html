@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
         <button>Score</button>
     </div>
     <header class="order">
-        <h1>Bingo</h1>
+        <img src="—Pngtree—bingo%20png%20vector%20design_5996114.png" id="title" alt="Lucky number logo" />
     </header>
     <div id="playerNames"> <!-- Nuevo contenedor para los nombres de los jugadores -->
         <h4>Register</h4>
@@ -32,7 +32,7 @@
 </div>
 
 <!--- Game section --->
-<div id="Tables">
+<div id="Tables" class = "hidden">
     <div>
         <button class="backButton" onclick="showDashboard()">Back</button>
     </div>
@@ -51,16 +51,23 @@
 </div>
 
 <!--- Score section --->
-<div id="scores">
+<div id="scores" class = "hidden">
     <h1>Total scores:</h1>
     <ol id="List">
     </ol>
+    </div>
+        <button onclick="showdashboard()">Dashboard</button>
+    </div>
 </div>
 
+
 <!--- Victory section --->
-<div id="victories">
+<div id="victories" class = "hidden">
+    <div>
+        <button onclick="showDashboard()">Dashboard</button>
+    </div>
     <h1>Victories:</h1>
-    <ol id="List">
+    <ol id="Listvictorias">
     </ol>
 </div>
 
