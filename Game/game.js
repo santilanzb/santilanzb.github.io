@@ -102,3 +102,109 @@ function validatePlayerNames() {
 
     return true;
 }
+
+
+function getRandomNumber() {
+    return Math.floor(Math.random() * MAX_NUMBER) + 1;
+}
+
+function number() {
+    countRounds++;
+    const tableros = getTableros();
+
+    if (countRounds < QUANTITY_NUMBERS && !areAllCartonsFilled(tableros)) {
+        let num = randomUniqueNumbers[arrayindex++];
+        const randomNumberElement = document.getElementById("random_number");
+        randomNumberElement.innerHTML = num;
+        changeCell(num, tableros);
+    } else {
+        verificarPuntos();
+    }
+}
+
+function changeCell(aleatorio, tableros) {
+    const cells = document.querySelectorAll(".board-cell");
+
+    cells.forEach((cell) => {
+        let number = cell.innerHTML;
+
+        if (number == aleatorio) {
+            cell.style.backgroundColor = "red";
+        }
+    });
+
+    tableros.forEach((tablero) => {
+        const posicion = encontrarPosicion(tablero, aleatorio);
+
+        if (posicion != -1) {
+            tablero[posicion["fila"]][posicion["columna"]] = "x";
+        }
+    });
+}
+
+function getTableros() {
+    const tableros = [];
+
+    for (let i = 1; i <= 4; i++) {
+        const tablero = document.getElementById("contenedor_jugador" + i);
+        tableros.push(tablero);
+    }
+
+    return tableros;
+}
+
+function deleteDashboard() {
+    const formElement = document.getElementById("form");
+    formElement.style.display = "none";
+}
+
+function mostrarFlex(id) {
+    const element = document.getElementById(id);
+    element.style.display = "flex";
+}
+
+function getRandomUniqueNumbers(min, max, quantity) {
+    if (max - min + 1 < quantity) {
+        return "Cannot generate the requested quantity of numbers within the given range.";
+    }
+
+    let numbers = [];
+    for (let i = min; i <= max; i++) {
+        numbers.push(i);
+    }
+
+    let randomNumbers = [];
+    for (let i = 0; i < quantity; i++) {
+        const randomIndex = Math.floor(Math.random() * numbers.length);
+        const randomNumber = numbers[randomIndex];
+        numbers.splice(randomIndex, 1);
+        randomNumbers.push(randomNumber);
+    }
+
+    return randomNumbers;
+}
+
+function ocultarTablas(jugador) {
+    const jugadores = ["jugador1", "jugador2", "jugador3", "jugador4"];
+    const tableros = ["contenedor_jugador1", "contenedor_jugador2", "contenedor_jugador3", "contenedor_jugador4"];
+
+    resetearValores();
+
+    jugadores.forEach((jug, index) => {
+        if (jug === jugador.id) {
+            tableros.forEach((tab, idx) => {
+                if (idx !== index) {
+                    const tablero = document.getElementById(tab);
+                    tablero.style.display = "none";
+                }
+            });
+        }
+    });
+}
+
+function resetearValores() {
+    randomUniqueNumbers = getRandomUniqueNumbers(MIN_NUMBER, MAX_NUMBER, QUANTITY_NUMBERS);
+    countRounds = 0;
+    arrayindex = 0;
+}
+
