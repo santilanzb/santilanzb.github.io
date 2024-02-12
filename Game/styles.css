@@ -1,128 +1,71 @@
-/* Estilo general para el body */
-/* Que el body de la pagina sea marron claro, con una altura minima de 100vh, y que lo elementos esten uno encima del otro y centrados. */
-/* Que el estilo de la letra del body sea Verdana, sans-serif. */
-
-body{
-    min-height: 100vh;
-    font-family: Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f4a460;
-}
-
-/* Estilo de los botones */
-/* Que los botones tengan un color de fondo gris oscuro, con el texto en color blanco y con las esquinas redondeadas. */
-button{
-    background-color: #3f4547;
-    color: white;
-    border-radius: 10px;
-}
-
-/* Pantalla inicial (Dashboard) */
-/* Que los elementos de la pantalla inicial esten uno encima del otro y centrados. */
-.order{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-#form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 50px;
-    background-color: #a1a1f3;
-    border-radius: 10px;
-    padding: 40px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-/* Pantalla del tablero */
-/* Que los elementos de la pantalla del tablero esten uno al lado del otro. */
-.backButton{
-    float: left;
-}
-.table3{
-    display: grid;
-    grid-template-columns: repeat(3, 50px);
-    grid-template-rows: repeat(3, 50px);
-    gap: 4px;
-    margin: 10px;
-    background-color: #a1a1f3;
-}
-.table4{
-    display: grid;
-    grid-template-columns: repeat(4, 50px);
-    grid-template-rows: repeat(4, 50px);
-    gap: 4px;
-    margin: 10px;
-    background-color: #a1a1f3;
-}
-/*
 /* Estilo global para el body */
-/* Que el body de la pagina sea marron claro, con una altura minima de 100vh, y que lo elementos esten uno encima del otro y centrados. */
-/* Que el estilo de la letra del body sea Verdana, sans-serif. */
-
-body{
+body {
     min-height: 100vh;
     font-family: Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f4a460;
+    background-color: #f4a460; /* Marrón claro */
 }
 
 /* Estilo de los botones */
-/* Que los botones tengan un color de fondo gris oscuro, con el texto en color blanco y con las esquinas redondeadas. */
-button{
-    background-color: #3f4547;
+button {
+    background-color: #3f4547; /* Gris oscuro */
     color: white;
     border-radius: 10px;
+    transition: box-shadow 0.3s, transform 0.3s, background-color 0.3s; /* Agregamos transiciones */
+}
+
+button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+    background-color: #696969; /* Gris */
 }
 
 /* Pantalla inicial (Dashboard) */
-/* Que los elementos de la pantalla inicial esten uno encima del otro y centrados. */
-.order{
+.order {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-around; /* Cambiado de space-between a space-around */
 }
 
-/* Que el formulario este centrado y con un fondo de color cristalino, con las esquinas redondeadas(con sombra) y con letra tipo Verdana. */
-#form{
+/* Estilo del formulario */
+#form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 50px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo de color cristalino */
     border-radius: 10px;
     padding: 40px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
 }
 
 /* Pantalla del tablero */
-/* Que el boton de atras este a la izquierda. */
-.backButton{
-    float: left;
+.backButton {
+    float: left; /* Botón de atrás a la izquierda */
 }
-/* Que los elementos de la pantalla del tablero esten uno al lado del otro. */
-.table3{
+
+/* Estilo de las tablas */
+.table3,
+.table4,
+.table5 {
     display: grid;
     grid-template-columns: repeat(3, 50px);
     grid-template-rows: repeat(3, 50px);
     gap: 4px;
     margin: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgb(220, 148, 116); /* Marrón claro */
 }
-.table4{
-    display: grid;
+
+.table4 {
     grid-template-columns: repeat(4, 50px);
     grid-template-rows: repeat(4, 50px);
-    gap: 4px;
-    margin: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
 }
 
-
+.table5 {
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(5, 50px);
+}
