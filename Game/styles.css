@@ -23,9 +23,106 @@ button{
 /* Que los elementos de la pantalla inicial esten uno encima del otro y centrados. */
 .order{
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#form{
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 50px;
+    background-color: #a1a1f3;
+    border-radius: 10px;
+    padding: 40px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Pantalla del tablero */
+/* Que los elementos de la pantalla del tablero esten uno al lado del otro. */
+.backButton{
+    float: left;
+}
+.table3{
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    grid-template-rows: repeat(3, 50px);
+    gap: 4px;
+    margin: 10px;
+    background-color: #a1a1f3;
+}
+.table4{
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(4, 50px);
+    gap: 4px;
+    margin: 10px;
+    background-color: #a1a1f3;
+}
+/*
+/* Estilo global para el body */
+/* Que el body de la pagina sea marron claro, con una altura minima de 100vh, y que lo elementos esten uno encima del otro y centrados. */
+/* Que el estilo de la letra del body sea Verdana, sans-serif. */
+
+body{
+    min-height: 100vh;
+    font-family: Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4a460;
+}
+
+/* Estilo de los botones */
+/* Que los botones tengan un color de fondo gris oscuro, con el texto en color blanco y con las esquinas redondeadas. */
+button{
+    background-color: #3f4547;
+    color: white;
+    border-radius: 10px;
+}
+
+/* Pantalla inicial (Dashboard) */
+/* Que los elementos de la pantalla inicial esten uno encima del otro y centrados. */
+.order{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/* Que el formulario este centrado y con un fondo de color cristalino, con las esquinas redondeadas(con sombra) y con letra tipo Verdana. */
+#form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 40px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Pantalla del tablero */
+/* Que el boton de atras este a la izquierda. */
+.backButton{
+    float: left;
+}
+/* Que los elementos de la pantalla del tablero esten uno al lado del otro. */
+.table3{
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    grid-template-rows: repeat(3, 50px);
+    gap: 4px;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.table4{
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(4, 50px);
+    gap: 4px;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 
