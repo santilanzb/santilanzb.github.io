@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Document</title>
     <link rel="stylesheet" href="./styles.css" />
 </head>
-<body>
+
 
 <!--- Register section --->
 <div id="form" class="registration-section">
     <div>
-        <button>Score</button>
+        <button onclick="mostrarVictorias()">Scores</button>
     </div>
     <header class="order">
-        <img src="—Pngtree—bingo%20png%20vector%20design_5996114.png" id="title" alt="Lucky number logo" />
+        <img src="—Pngtree—bingo%20png%20vector%20design_5996114.png" id="title" />
     </header>
     <div id="playerNames"> <!-- Nuevo contenedor para los nombres de los jugadores -->
         <h4>Register</h4>
@@ -56,21 +57,21 @@
     <h1>Total scores:</h1>
     <ol id="List">
     </ol>
-</div>
-<button onclick="showdashboard()">Dashboard</button>
-</div>
+    </div>
+    <button onclick="showDashboard()">Dashboard</button>
+    </div>
 </div>
 
 
 <!--- Victory section --->
 <div id="victories" class = "hidden">
     <div>
-        <button onclick="showDashboard()">Dashboard</button>
+        <button onclick="showDashboard()">Return</button>
     </div>
     <h1>Victories:</h1>
-    <ol id="Listvictorias">
-    </ol>
+    <ol id="Listvictorias"></ol>
 </div>
+
 
 </body>
 <script src="./game.js"></script>

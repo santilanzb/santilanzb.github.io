@@ -11,12 +11,13 @@ let arrayIndex = 0;
 function generateBoard(size) {
     if (validatePlayerNames()) {
         resetGameData();
+        mostrarFlex("Tables")
 
         const boardContainer = document.getElementById("board");
         boardContainer.innerHTML = "";
 
         for (let playerIndex = 1; playerIndex <= 4; playerIndex++) {
-            const playerName = document.getElementById("jugador" + playerIndex).value;
+            const playerName = document.getElementById("player" + playerIndex).value;
             const playerContainer = createPlayerContainer(playerName, playerIndex);
 
             const playerBoard = createPlayerBoard(size);
@@ -33,7 +34,7 @@ function resetGameData() {
     tableros = [];
     countRounds = 0;
     arrayIndex = 0;
-    deleteDashboard();
+    DeleteDashboard();
 }
 
 function createPlayerContainer(playerName, playerIndex) {
@@ -87,7 +88,7 @@ function validatePlayerNames() {
     const playerNames = [];
 
     for (let playerIndex = 1; playerIndex <= 4; playerIndex++) {
-        const playerName = document.getElementById("jugador" + playerIndex).value.trim();
+        const playerName = document.getElementById("player" + playerIndex).value.trim();
 
         if (!playerName) {
             return false;
@@ -103,6 +104,10 @@ function validatePlayerNames() {
     return true;
 }
 
+function mostrarFlex(id) {
+    const element_new = document.getElementById(id);
+    element_new.style.display = "flex";
+}
 
 function getRandomNumber() {
     return Math.floor(Math.random() * MAX_NUMBER) + 1;
@@ -112,8 +117,8 @@ function number() {
     countRounds++;
     const tableros = getTableros();
 
-    if (countRounds < QUANTITY_NUMBERS && !areAllCartonsFilled(tableros)) {
-        let num = randomUniqueNumbers[arrayindex++];
+    if (countRounds < QUANTITY_NUMBERS && !verificarCartonLleno(tableros[0]) && !verificarCartonLleno(tableros[1]) && !verificarCartonLleno(tableros[2]) && !verificarCartonLleno(tableros[3])) {
+        let num = randomUniqueNumbers[arrayIndex++];
         const randomNumberElement = document.getElementById("random_number");
         randomNumberElement.innerHTML = num;
         changeCell(num, tableros);
@@ -146,14 +151,14 @@ function getTableros() {
     const tableros = [];
 
     for (let i = 1; i <= 4; i++) {
-        const tablero = document.getElementById("contenedor_jugador" + i);
-        tableros.push(tablero);
+        const board = document.getElementById("contenedor_jugador" + i);
+        tableros.push(board);
     }
 
     return tableros;
 }
 
-function deleteDashboard() {
+function DeleteDashboard() {
     const formElement = document.getElementById("form");
     formElement.style.display = "none";
 }
@@ -184,8 +189,8 @@ function getRandomUniqueNumbers(min, max, quantity) {
     return randomNumbers;
 }
 
-function ocultarTablas(jugador) {
-    const jugadores = ["jugador1", "jugador2", "jugador3", "jugador4"];
+function hideTables(jugador) {
+    const jugadores = ["player1", "player2", "player3", "player4"];
     const tableros = ["contenedor_jugador1", "contenedor_jugador2", "contenedor_jugador3", "contenedor_jugador4"];
 
     resetearValores();
@@ -203,12 +208,6 @@ function ocultarTablas(jugador) {
 }
 
 function resetearValores() {
-    randomUniqueNumbers = getRandomUniqueNumbers(MIN_NUMBER, MAX_NUMBER, QUANTITY_NUMBERS);
-    countRounds = 0;
-    arrayindex = 0;
-}
-
-function resetearValores() {
     const jugadores = ["contenedor_jugador1", "contenedor_jugador2", "contenedor_jugador3", "contenedor_jugador4"];
 
     jugadores.forEach((jugador) => {
@@ -220,13 +219,13 @@ function resetearValores() {
 
 function showDashboard() {
     countRounds = 0;
-    const elementsToHide = ["Tablas", "puntajes", "victorias"];
+    const elementsToHide = ["Tables", "puntajes", "victorias"];
 
     elementsToHide.forEach((elementId) => {
         const element = document.getElementById(elementId);
         element.style.display = "none";
 
-        if (elementId === "Lista") {
+        if (elementId === "List") {
             element.innerHTML = ""; // Clear the content of the list
         }
     });
@@ -281,15 +280,15 @@ function columnasConX(matriz) {
 function verificarPuntos() {
     const puntos = [0, 0, 0, 0];
 
-    const element = document.getElementById("Tablas");
+    const element = document.getElementById("Tables");
     element.style.display = "none";
 
-    const element1 = document.getElementById("puntajes");
+    const element1 = document.getElementById("scores");
     element1.style.display = "flex";
 
     for (let i = 0; i < 4; i++) {
         const jugadorIndex = i + 1;
-        const jugadorInput = document.getElementById(`jugador${jugadorIndex}`);
+        const jugadorInput = document.getElementById(`player${jugadorIndex}`);
         const jugadorNombre = jugadorInput.value;
 
         const lleno = verificarCartonLleno(tableros[i]);
@@ -305,8 +304,8 @@ function verificarPuntos() {
 
         const jugadorpuntos = document.createElement('li');
         jugadorpuntos.innerHTML = `${jugadorNombre}: ${puntos[i]}`;
-        const lista = document.getElementById("Lista");
-        lista.appendChild(jugadorpuntos);
+        const list = document.getElementById("List");
+        list.appendChild(jugadorpuntos);
 
         if (validarNombreEnLocalStorage(jugadorNombre)) {
             let puntajeprevio = localStorage.getItem(jugadorNombre);
@@ -320,12 +319,12 @@ function verificarPuntos() {
 }
 
 function mostrarVictorias() {
-    const element_new2 = document.getElementById("victorias");
+    const element_new2 = document.getElementById("victories");
     element_new2.style.display = "flex";
 
-    deleteDashboard();
+    DeleteDashboard();
 
-    const lista = document.getElementById("victoriasLista");
+    const lista = document.getElementById("Listvictorias");
     lista.innerHTML = '';
 
     // Iterate over localStorage keys and display player victories
@@ -336,5 +335,10 @@ function mostrarVictorias() {
         element.textContent = `${key}: ${value}`;
         lista.appendChild(element);
     }
+}
+
+function validarNombreEnLocalStorage(nombre) {
+    // Verificar si la clave (key) existe en localStorage
+    return localStorage.getItem(nombre) !== null;
 }
 
